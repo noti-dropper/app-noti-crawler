@@ -1,10 +1,10 @@
 package Notifi.com;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationManagerCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 
 import java.util.Set;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         if (!permissionGrantred()) {
             Intent intent = new Intent(
                     "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS");
-            startActivity(intent);
+            startService(intent);
         }
     }
 
