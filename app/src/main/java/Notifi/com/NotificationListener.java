@@ -46,18 +46,18 @@ public class NotificationListener extends NotificationListenerService {
 
 
         //각 명사들의 value 값들을 디비에서 찾아옵니다.
-        //noun_list = 명사 <- 리스트를 넣어주세요
+        //noun_list = 명사 <- 서버에서 받아온 명사 리스트를 쟤한테 넣어주세요
 
         //NounTable을 생성하고 객체를 가져옵니다.
-        NounDBHelper NounDBHelper = new NounDBHelper(this);
-        SQLiteDatabase NounDB = NounDBHelper.getReadableDatabase();
+        DBHelper DBHelper = new NounDBHelper(this);
+        SQLiteDatabase db = DBHelper.getReadableDatabase();
 
         int sentence_value = 0;
         for(int i=0; i<noun_list.size; i++) {
             //해당 명사의 value값을 가져옵니다.
             String sql = "select value from NounTable where sentence = '" + noun_list[i] + "'" ;
             // 쿼리실행
-            Cursor c = NounDB.rawQuery(sql, null);
+            Cursor c = db.rawQuery(sql, null);
             int value = c.getInt(1);
 
             //각 명사의 value 값을 누적합니다.
@@ -65,12 +65,8 @@ public class NotificationListener extends NotificationListenerService {
         }
 
         //도착한 노티와 예상 value 값을  디비에 저장합니다.
-
-        //NotiTable을 생성하고 객체를 가져옵니다.
-        NotiDBHelper NotiDBHelper = new NotiDBHelper(this);
-        SQLiteDatabase NotiDB = NotiDBHelper.getWritableDatabase();
-
-        String sql = "insert sentence, value";
+        String sql = "insert into NotiTable (sentence, value) values ('" + sentence + "', " + sentence_value + ")";
+        db.execSQL(sql);
 
 
 
