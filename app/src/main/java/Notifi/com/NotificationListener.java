@@ -1,7 +1,6 @@
 package Notifi.com;
 
 import android.app.Notification;
-import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
@@ -43,11 +42,8 @@ public class NotificationListener extends NotificationListenerService {
         Icon smallIcon = notification.getSmallIcon();
         Icon largeIcon = notification.getLargeIcon();
 
-        Log.e(TAG, "onNotificationPosted ~ " +
-                " packageName: " + sbn.getPackageName() +
+        Log.e(TAG, "Posted ~ " +
                 " id: " + sbn.getId() +
-                " postTime: " + sbn.getPostTime() +
-                " title: " + title +
                 " text : " + text +
                 " subText: " + subText);
 
