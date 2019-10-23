@@ -6,7 +6,8 @@
 
 ## 설명
 
-![desc](./readme_resource)
+![desc](.readme_resource/source.jpg)
+
 
 |함수 이름   | 설명 |
 |:--------|:----------------------|
