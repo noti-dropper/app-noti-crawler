@@ -1,5 +1,21 @@
 # Noti-Crawler
 
+> Android Notification Crawler
+
+
+
+## 설명
+
+![desc](./readme_resource)
+
+|함수 이름   | 설명 |
+|:--------|:----------------------|
+| subText           |      |
+| contentTitle()    |      |
+| contentText()     |      |
+| bigContentTitle() |      |
+| bigText           |      |
+
 
 
 ## 참고
